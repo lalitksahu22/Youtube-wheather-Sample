@@ -1,0 +1,58 @@
+.search-bar,h1{
+    margin: 10px;
+    text-align: center;
+}
+
+.search-bar input{
+    width:75%
+}
+
+.list-group-item{
+    cursor: pointer;
+}
+.list-group-item:hover{
+    background-color: #eee;
+
+}
+td:first-of-type,td:first-of-type >div{
+    height:200px;
+    width:250px;
+}
+.wh table,tr,td,th{
+    border:5px solid black;
+    color: blue;
+    background: white;
+}
+.wh td{
+    height:200px;
+    width:200px;
+}
+.rail table,tr,td,th{
+    border:2px solid black;
+    color: blue;
+    background: white;
+}
+.rail td{
+    height:50px;
+    width:50px;
+}
+
+.map{
+    height:400px;
+    width:400px;
+}
+.rail{
+    background: url("/train.jpg");
+    height:100%;
+    width:100%
+}
+.railclass{
+    cursor: pointer;
+    margin-right: 6px;
+}
+.railclass:hover{
+    background-color: #eee
+}
+.corr{
+  width: 100%
+}
