@@ -13,7 +13,7 @@ import PromiseMiddelware from 'redux-promise'
 
 const createStoreWithMiddleware = applyMiddleware(thunk,PromiseMiddelware)(createStore);
 //var a=createStore(reducers,applyMiddleware(thunk,PromiseMiddelware))
-
+//lalit
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <BrowserRouter>
