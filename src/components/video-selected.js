@@ -4,11 +4,11 @@ import {connect} from 'react-redux'
 
  class VideoSelected extends Component{
     
-     url=`http://www.youtube.com/embed/${this.props.selectedvideo.id.videoId}`;
+     url=`https://www.youtube.com/embed/${this.props.selectedvideo.id.videoId}`;
     
     render(){
        
-       this.url=`http://www.youtube.com/embed/${this.props.selectedvideo.id.videoId}`;
+       this.url=`https://www.youtube.com/embed/${this.props.selectedvideo.id.videoId}`;
         return(
         <div>
             <div className="embed-responsive embed-responsive-16by9">
