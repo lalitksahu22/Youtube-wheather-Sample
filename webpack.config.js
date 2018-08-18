@@ -2,6 +2,25 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const devMode=process.env.NODE_ENV=="development"?true:false;
+
+
+const plugins=[]
+
+plugins.push(new webpack.HotModuleReplacementPlugin(),
+new CleanWebpackPlugin(['dist']),
+new HtmlWebpackPlugin({template: './src/index.html',}),
+new MiniCssExtractPlugin({
+ filename: "style/[name].css",
+ chunkFilename: "[id].css",
+}))
+
+if(devMode){
+  plugins.push(
+    new webpack.HotModuleReplacementPlugin()
+)
+}
+console.log("xxxxxxxxxxxxxxxxxxxxxx"+devMode)
 module.exports = {
   entry: [
     './src/index.js',
@@ -30,8 +49,8 @@ module.exports = {
     {
       test: /\.(sa|sc|c)ss$/,
       use: [
-        //devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
-        MiniCssExtractPlugin.loader,
+        devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+        //MiniCssExtractPlugin.loader,
         'css-loader'
         // {
         //   loader:MiniCssExtractPlugin.loader,
@@ -65,18 +84,9 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     contentBase: './',
-    hot: true
+    hot: devMode
   },
-  plugins: [
-     new webpack.HotModuleReplacementPlugin(),
-     new CleanWebpackPlugin(['dist']),
-     new HtmlWebpackPlugin({template: './src/index.html',}),
-     new MiniCssExtractPlugin({
-      filename: "style/[name].css",
-      chunkFilename: "[id].css",
-    })
-   
-  ],
+  plugins: plugins,
   devtool: 'inline-source-map',
  
 };
