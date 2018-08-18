@@ -10,17 +10,21 @@ const plugins=[]
 plugins.push(
 //new CleanWebpackPlugin(['dist']),
 new HtmlWebpackPlugin({template: './src/index.html',}),
-// new MiniCssExtractPlugin({
-//  filename: "style/[name].css",
-//  chunkFilename: "[id].css",
-// })
 )
 
-// if(devMode){
-//   plugins.push(
-//     new webpack.HotModuleReplacementPlugin()
-// )
-// }
+if(devMode){
+  plugins.push(
+    new webpack.HotModuleReplacementPlugin()
+)
+}else{
+  plugins.push(
+    new CleanWebpackPlugin(['dist']),
+    new MiniCssExtractPlugin({
+      filename: "style/[name].css",
+      chunkFilename: "[id].css",
+     }
+))
+}
 console.log("xxxxxxxxxxxxxxxxxxxxxx"+devMode)
 module.exports = {
   entry: [
@@ -50,9 +54,8 @@ module.exports = {
     {
       test: /\.(sa|sc|c)ss$/,
       use: [
-        //devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+        devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
         //MiniCssExtractPlugin.loader,
-        'style-loader',
         'css-loader'
         // {
         //   loader:MiniCssExtractPlugin.loader,
@@ -86,7 +89,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     contentBase: './',
-    //hot: devMode
+    hot: devMode
   },
   plugins: plugins,
   devtool: 'inline-source-map',
