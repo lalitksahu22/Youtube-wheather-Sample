@@ -24,6 +24,9 @@ app.use((req,res,next)=>{
   )
 
 app.use('/chatbot', indexRouter);
+app.get("/key",(req,res)=>{
+    res.sendFile(path.resolve(__dirname,"..","youtubechat-2d69bcdf86ec.json"))
+})
 
 app.get("*",(req,res)=>{
    // console.log("default path")
