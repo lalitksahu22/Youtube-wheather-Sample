@@ -12,7 +12,7 @@ import App from './components/app';
 import WApp from './components/whe/WApp';
 import RApp from './components/rail/rapp';
 import reducers from './reducers';
-import {BrowserRouter,Route} from 'react-router-dom';
+import {BrowserRouter,Route,Switch,Redirect} from 'react-router-dom';
 
 import Demo from './demo';
 import {hot,AppContainer} from 'react-hot-loader'
@@ -24,12 +24,13 @@ class AppContainer12 extends Component {
     <Provider store={createStoreWithMiddleware(reducers)}>
       <div className="container">
       <BrowserRouter>
-        <div>
+        <Switch>
           <Route  path="/" exact component={App}/>
           <Route  path="/wheather" component={WApp}/>
           <Route  path="/rail" component={RApp}/>
           <Route  path="/demo" component={Demo}/>
-        </div>
+          <Redirect  to="/"/>
+        </Switch>
       </BrowserRouter>
       </div>
       </Provider>

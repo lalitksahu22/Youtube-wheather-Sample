@@ -26,6 +26,7 @@ app.use((req,res,next)=>{
 app.use('/chatbot', indexRouter);
 
 app.get("*",(req,res)=>{
+    console.log("default path")
     res.sendFile(path.resolve(__dirname,"..","dist/index.html"))
 })
 app.listen(port);

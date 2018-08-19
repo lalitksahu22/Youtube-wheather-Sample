@@ -21,7 +21,7 @@ router.get('/getresponse', function(req, res, next) {
 
   })
   .catch(err=>{
-      res.send(err);
+      res.send("Dialogflow webhook not configured");
   });
 
 });

@@ -49,7 +49,7 @@ return sessionClient
     return result.fulfillmentText;
   })
   .catch(err => {
-    console.error('ERROR:', err);
+   return "Dialogflow webhook not configured"
   });
 
 }
