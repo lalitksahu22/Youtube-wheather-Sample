@@ -10,16 +10,16 @@ export default class MessagesList extends Component{
     getmessageslist(){
         return (this.props.messageslist.map(
             msg=>(
-                <div>
+                
                     <Message msg={msg}/>
-                </div>
+               
             )
         ))
     }
     
     render(){
         return(
-           <div>
+           <div style={{width:"100%"}}>
               {this.getmessageslist()}
             </div>
         )

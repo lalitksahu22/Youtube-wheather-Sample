@@ -59,17 +59,17 @@ td:first-of-type,td:first-of-type >div{
 }
 .chatboat{
    position: fixed;
-   height:50vh;
+   height:65vh;
    right: 5px;
    bottom: 0;
-   width:35vh;
+   width:40vh;
    border: solid black 1px;
    background: white;
 }
 .chatheader{
     background-color:steelblue;
     color: white;
-    height:4vh;
+    height:2rem;
     
 }
 .row{
@@ -78,7 +78,7 @@ td:first-of-type,td:first-of-type >div{
 }
 .chatbody{
     height: 80%;
-    overflow: scroll;
+    overflow: auto;
     overflow-x: hidden
 }
 .chattext{

@@ -5,10 +5,12 @@ export default class Message extends Component{
         super(props);
     }
     render(){
-        let styleclass=this.props.msg.self?"col-sm-offset-8 selfmsg":"col-sm-6 rcvmsg";
+        let styleclass=this.props.msg.self?"row-reverse":"row";
+        let s1=this.props.msg.self?"selfmsg":"rcvmsg";
+
         return(
-           <div className="row">
-              <div className={styleclass}>
+           <div className={"row d-flex "} style={{flexDirection:styleclass}}>
+              <div className={s1}>
                   {this.props.msg.content}
               </div>
             </div>

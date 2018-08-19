@@ -58,9 +58,9 @@ class Chatbot extends Component{
         return(
            this.state.openchat?( 
            <div className="chatboat">
-                <div style={{display:"block"}} className="row chatheader">
-                    <div style={{float:"left"}}>YChatBoat</div>
-                    <div onClick={this.closeChat} style={{float:"right"}} className="cross">&#10006;</div>
+                <div className="row chatheader d-flex justify-content-between align-items-center">
+                    <div >YChatBoat</div>
+                    <div onClick={this.closeChat} className="cross">&#10006;</div>
                 </div>
                 <div ref={(elem)=>{this.scrollchatref=elem;}} className="row chatbody">
                     <MessagesList messageslist={this.state.messageslist}/>
