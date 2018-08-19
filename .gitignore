@@ -2,7 +2,6 @@
 /dist
 npm-debug.log
 .DS_Store
-/youtubechat-2d69bcdf86ec.json
 
 # IntelliJ
 *.iml
