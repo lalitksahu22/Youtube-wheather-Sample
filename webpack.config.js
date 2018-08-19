@@ -18,7 +18,7 @@ if(devMode){
 )
 }else{
   plugins.push(
-    new CleanWebpackPlugin(['dist']),
+    //new CleanWebpackPlugin(['dist']),
     new MiniCssExtractPlugin({
       filename: "style/[name].css",
       chunkFilename: "[id].css",
