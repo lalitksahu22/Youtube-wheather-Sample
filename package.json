@@ -5,9 +5,11 @@
   "main": "index.js",
   "repository": "git@github.com:StephenGrider/ReduxSimpleStarter.git",
   "scripts": {
-    "start": "set NODE_ENV=development&& node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --port 8080 --mode development",
-    "start:prod": "set NODE_ENV=production&& webpack --mode production && node server/index.js",
+    "start:dev": "set PORT=8081&& set NODE_ENV=development&&  start npm run start:server && npm run start:devserver",
+    "start:devserver": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --port 8080 --mode development",
+    "start:server": "set GOOGLE_APPLICATION_CREDENTIALS=./youtubechat-2d69bcdf86ec.json&& node server/index.js",
     "prod:build": "webpack",
+    "start:prod": "set NODE_ENV=production&&  webpack --mode production && npm run start:server",
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js --recursive ./test",
     "test:watch": "npm run test -- --watch"
   },
@@ -44,6 +46,7 @@
     "dialogflow": "^0.5.0",
     "express": "^4.16.3",
     "lodash": "^3.10.1",
+    "morgan": "^1.9.0",
     "react": "^15.6.2",
     "react-bootstrap": "^0.32.1",
     "react-chat-widget": "^2.1.3",

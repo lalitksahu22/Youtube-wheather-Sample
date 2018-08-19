@@ -1,10 +1,10 @@
 import React,{Component} from 'react';
-import MessageList from './MessagesList';
 import MessagesList from './MessagesList';
 //import {sendToDialogflow} from '../dialogflow';
 import axios from 'axios';
 import {connect} from 'react-redux';
-import {videoFromChat,setSelectedVideo} from '../actions'
+import {videoFromChat,setSelectedVideo} from '../actions';
+import {chatbotapi} from '../../config';
 
 class Chatbot extends Component{
     constructor(props){
@@ -26,12 +26,10 @@ class Chatbot extends Component{
         if(keycode==13 && e.target.value != ""){
             let query=e.target.value;
             this.setState({messageslist:[...this.state.messageslist,{self:true,content:query}]});
-            axios.get(`http://localhost:3000/getresponse?querytext=${query}`)
+            axios.get(`${chatbotapi}/getresponse?querytext=${query}`)
             .then(
                 restext=>
                  {
-                    console.log("lllllllllllllllllllllllllll")
-                    console.log(restext.data)
                  if(restext.data.payload){
                      
                     this.props.videoFromChat(restext.data.payload)
